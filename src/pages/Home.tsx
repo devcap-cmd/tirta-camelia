@@ -28,6 +28,7 @@ export default function Home() {
 
   const comingSoon = [
     'Hotel',
+    'Rain Pool',
     'Water Sport',
     'Restoran',
     'Fitnes & Wellness',
@@ -59,7 +60,8 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
@@ -178,7 +180,8 @@ export default function Home() {
             Hubungi kami sekarang untuk reservasi dan informasi lebih lanjut
           </p>
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-colors inline-flex items-center"
