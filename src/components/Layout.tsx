@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Waves } from 'lucide-react';
+import { Menu, X, Instagram} from 'lucide-react';
 import { useState } from 'react';
+import logoH from '../public/logoH.png'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <Waves className="h-8 w-8 text-blue-600" />
+              <img src={logoH} alt="Tirta Camelia" className="h-8 w-auto"/>
               <span className="text-xl font-bold text-gray-900">Tirta Camelia</span>
             </Link>
 
@@ -40,7 +41,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
@@ -74,7 +76,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors text-center"
@@ -93,12 +96,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Waves className="h-8 w-8 text-blue-400" />
+                <img src={logoH} alt="Tirta Camelia" className="h-8 w-auto bg-white rounded-full p-1 shadow-sm"/>
                 <span className="text-xl font-bold">Tirta Camelia</span>
               </div>
               <p className="text-gray-400 text-sm">
                 Destinasi wisata air terbaik untuk keluarga Anda. Nikmati berbagai fasilitas modern dan pelayanan terbaik.
               </p>
+              <a
+      href="https://www.instagram.com/tirtacameliahotspring?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700"
+    >
+      <Instagram className="h-5 w-5" />
+    </a>
+              
             </div>
 
             <div>
@@ -120,13 +132,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="text-lg font-semibold mb-4">Kontak</h3>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li>Jl. Raya Tirta Camelia No. 123</li>
-                <li>Kota, Provinsi 12345</li>
-                <li>Telp: (021) 1234-5678</li>
-                <li>Email: info@tirtacamelia.com</li>
+                <li>Banjarsari, Pangalengan</li>
+                <li>Kabupaten Bandung, Jawa Barat 40378</li>
+                <li>Telp: (+62)821-3032-6679</li>
+                <li>Email: tirtacameliaofficial@gmail.com</li>
               </ul>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"

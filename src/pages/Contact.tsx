@@ -3,9 +3,8 @@ import { MapPin, Clock, Phone, Mail, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   const operatingHours = [
-    { day: 'Senin - Jumat', hours: '08:00 - 18:00 WIB' },
-    { day: 'Sabtu - Minggu', hours: '07:00 - 19:00 WIB' },
-    { day: 'Hari Libur Nasional', hours: '07:00 - 19:00 WIB' },
+    { day: 'Senin - Jumat', hours: '24 Jam' },
+    { day: 'Sabtu - Minggu', hours: '24 Jam' },
   ];
 
   return (
@@ -45,9 +44,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Alamat</h3>
                     <p className="text-gray-600">
-                      Jl. Raya Tirta Camelia No. 123
+                      Banjarsari, Pangalengan, Kabupaten Bandung
                       <br />
-                      Kota, Provinsi 12345
+                      Jawa Barat, 40378
                     </p>
                   </div>
                 </div>
@@ -58,12 +57,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Telepon</h3>
-                    <p className="text-gray-600">(021) 1234-5678</p>
+                    <p className="text-gray-600">(+62)821-3032-6679</p>
                     <a
-                      href="tel:+6281234567890"
+                      href="tel:+6282130326679"
                       className="text-blue-600 hover:text-blue-700 font-medium"
                     >
-                      +62 812-3456-7890
+                      +62 821-3032-6679
                     </a>
                   </div>
                 </div>
@@ -75,10 +74,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
-                      href="mailto:info@tirtacamelia.com"
+                      href="mailto:tirtacameliaofficial@gmail.com"
                       className="text-blue-600 hover:text-blue-700"
                     >
-                      info@tirtacamelia.com
+                      tirtacameliaofficial@gmail.com
                     </a>
                   </div>
                 </div>
@@ -91,7 +90,8 @@ export default function Contact() {
                     <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
                     <p className="text-gray-600 mb-2">Chat langsung untuk reservasi cepat</p>
                     <a
-                      href="https://wa.me/6281234567890"
+                      href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-green-500 text-white px-6 py-2 rounded-full font-medium hover:bg-green-600 transition-colors inline-block"
@@ -147,7 +147,8 @@ export default function Contact() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
+
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors inline-block"
