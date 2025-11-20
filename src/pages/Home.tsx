@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { Waves, Coffee, Music, Gift, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import pengalamanTakTerlupakan from '../public/pengalamanTakTerlupakan.jpg';
 
 export default function Home() {
   const highlights = [
@@ -49,19 +51,30 @@ export default function Home() {
         />
       </Helmet>
 
+      {/* HERO */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+
+        <motion.div
+          className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Selamat Datang di Tirta Camelia
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-50">
             Destinasi wisata air terbaik untuk keluarga Anda
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <a
               href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
-
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
@@ -75,11 +88,13 @@ export default function Home() {
             >
               Lihat Fasilitas
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
+      {/* FASILITAS UNGGULAN */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -91,25 +106,38 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highlights.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 hover:border-blue-200"
+                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-200"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
               >
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
                   <item.icon className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-600">{item.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* PENGALAMAN TAK TERLUPAKAN */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-cyan-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -32 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Pengalaman Tak Terlupakan
               </h2>
@@ -139,17 +167,27 @@ export default function Home() {
                 Lihat Harga & Fasilitas
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </div>
-            <div className="bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl h-96 flex items-center justify-center text-white shadow-2xl">
-              <div className="text-center">
-                <Waves className="h-32 w-32 mx-auto mb-4 opacity-80" />
-                <p className="text-xl font-semibold">Gambar kolam akan ditampilkan di sini</p>
-              </div>
-            </div>
+            </motion.div>
+
+            <motion.div
+              className="rounded-3xl h-96 shadow-2xl overflow-hidden"
+              initial={{ opacity: 0, x: 32 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <img
+                src={pengalamanTakTerlupakan}
+                alt="Pengalaman tak terlupakan di Tirta Camelia"
+                className="w-full h-full object-cover"
+                loading="lazy"              // LAZY LOAD
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
+      {/* COMING SOON */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block bg-blue-100 rounded-full p-4 mb-6">
@@ -162,26 +200,38 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {comingSoon.map((item, index) => (
-              <span
+              <motion.span
                 key={index}
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full font-medium shadow-md"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.35, delay: index * 0.06 }}
               >
                 {item}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>
       </section>
 
+      {/* CTA WHATSAPP */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Siap untuk Pengalaman Tak Terlupakan?</h2>
+        <motion.div
+          className="max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold mb-6">
+            Siap untuk Pengalaman Tak Terlupakan?
+          </h2>
           <p className="text-xl mb-8 text-blue-50">
             Hubungi kami sekarang untuk reservasi dan informasi lebih lanjut
           </p>
           <a
             href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
-
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-colors inline-flex items-center"
@@ -189,7 +239,7 @@ export default function Home() {
             Reservasi via WhatsApp
             <ArrowRight className="ml-2 h-6 w-6" />
           </a>
-        </div>
+        </motion.div>
       </section>
     </>
   );

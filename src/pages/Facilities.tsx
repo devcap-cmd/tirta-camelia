@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Ticket, Home, CheckCircle, Clock, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Facilities() {
   const regularTickets = [
@@ -11,7 +12,7 @@ export default function Facilities() {
     },
     {
       category: 'Anak-anak',
-      weekdays: 'Rp 350.000',
+      weekdays: 'Rp 30.000',
       weekend: 'Rp 35.000',
       note: 'Tiket Reguler',
     },
@@ -55,9 +56,14 @@ export default function Facilities() {
         />
       </Helmet>
 
-      {/* HERO – versi clean */}
+      {/* HERO – clean + motion */}
       <section className="bg-white border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <motion.div
+          className="max-w-6xl mx-auto px-4 py-12 md:py-16"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <div className="text-center">
             <span className="inline-flex items-center rounded-full border border-sky-100 bg-sky-50 px-3 py-1 text-[11px] font-medium tracking-[0.18em] uppercase text-sky-700">
               Informasi Fasilitas & Harga
@@ -70,13 +76,19 @@ export default function Facilities() {
               Camelia, dari tiket reguler hingga kolam private.
             </p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 bg-white">
+      <section className="py-16 md:py-20 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           {/* TIKET MASUK & SEWA */}
-          <div className="mb-16">
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <div className="flex flex-col items-center mb-6">
               <div className="inline-flex items-center rounded-full bg-sky-50 px-4 py-2 mb-3">
                 <Ticket className="h-5 w-5 text-blue-600 mr-2" />
@@ -93,21 +105,22 @@ export default function Facilities() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+            {/* card tabel minimal */}
+            <div className="rounded-2xl border border-slate-200 bg-white/90 shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm md:text-base">
                   <thead>
-                    <tr className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
-                      <th className="px-6 py-4 text-left font-semibold">
+                    <tr className="bg-slate-50">
+                      <th className="px-6 py-4 text-left font-semibold text-slate-700">
                         Kategori
                       </th>
-                      <th className="px-6 py-4 text-center font-semibold">
+                      <th className="px-6 py-4 text-center font-semibold text-slate-700">
                         Weekdays
                       </th>
-                      <th className="px-6 py-4 text-center font-semibold">
+                      <th className="px-6 py-4 text-center font-semibold text-slate-700">
                         Weekend
                       </th>
-                      <th className="px-6 py-4 text-center font-semibold">
+                      <th className="px-6 py-4 text-center font-semibold text-slate-700">
                         Catatan
                       </th>
                     </tr>
@@ -117,19 +130,19 @@ export default function Facilities() {
                       <tr
                         key={index}
                         className={`${
-                          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                        } hover:bg-blue-50/60 transition-colors`}
+                          index % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'
+                        } hover:bg-sky-50 transition-colors`}
                       >
-                        <td className="px-6 py-4 font-semibold text-gray-900">
+                        <td className="px-6 py-4 font-medium text-slate-900">
                           {ticket.category}
                         </td>
-                        <td className="px-6 py-4 text-center text-blue-600 font-semibold">
+                        <td className="px-6 py-4 text-center text-sky-700 font-semibold">
                           {ticket.weekdays}
                         </td>
-                        <td className="px-6 py-4 text-center text-blue-600 font-semibold">
+                        <td className="px-6 py-4 text-center text-sky-700 font-semibold">
                           {ticket.weekend}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-600 text-xs md:text-sm">
+                        <td className="px-6 py-4 text-center text-slate-500 text-xs md:text-sm">
                           {ticket.note}
                         </td>
                       </tr>
@@ -138,10 +151,16 @@ export default function Facilities() {
                 </table>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* KOLAM PRIVATE */}
-          <div className="mb-16">
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <div className="flex flex-col items-center mb-6">
               <div className="inline-flex items-center rounded-full bg-sky-50 px-4 py-2 mb-3">
                 <Home className="h-5 w-5 text-blue-600 mr-2" />
@@ -159,35 +178,45 @@ export default function Facilities() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* KOTAK GOLD */}
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl shadow-xl p-8 border-2 border-yellow-400 flex flex-col h-full">
+              {/* GOLD – card putih minimal */}
+              <motion.div
+                className="flex flex-col h-full rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
                 <div className="text-center mb-6">
-                  <div className="inline-block bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-2 rounded-full font-bold text-lg mb-4">
-                    Kolam Private Gold
+                  <div className="inline-flex items-center rounded-full bg-amber-100 px-4 py-1 text-xs font-semibold text-amber-700 uppercase tracking-[0.18em] mb-4">
+                    Gold Package
                   </div>
-                  <div className="text-5xl font-bold text-gray-900 mb-2">
+                  <div className="text-4xl md:text-5xl font-bold text-slate-900 mb-1">
                     Rp 350.000
                   </div>
-                  <p className="text-gray-600 text-lg">per 3 orang</p>
+                  <p className="text-sm md:text-base text-slate-500">
+                    per 3 orang / 2 jam
+                  </p>
                 </div>
 
-                <div className="grid md:grid-cols-1 gap-6 mt-2">
+                <div className="space-y-5 mt-2">
                   <div className="flex items-start">
-                    <Clock className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                    <Clock className="h-5 w-5 text-sky-600 mr-3 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
+                      <h3 className="font-semibold text-slate-900 mb-1">
                         Durasi
                       </h3>
-                      <p className="text-gray-600">2 jam penggunaan</p>
+                      <p className="text-sm text-slate-600">
+                        2 jam penggunaan kolam private.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                    <CheckCircle className="h-5 w-5 text-sky-600 mr-3 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
+                      <h3 className="font-semibold text-slate-900 mb-1">
                         Fasilitas Termasuk
                       </h3>
-                      <ul className="text-gray-600 space-y-1 text-sm">
+                      <ul className="text-sm text-slate-600 space-y-1">
                         <li>• Tiket Masuk</li>
                         <li>• Handuk</li>
                         <li>• Coffee Welcome Drink</li>
@@ -197,48 +226,59 @@ export default function Facilities() {
                   </div>
                 </div>
 
-                <div className="mt-8 text-center md:mt-auto">
+                <div className="mt-8 md:mt-auto text-center">
                   <a
                     href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi%20Kolam%20Private%20Gold"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all inline-block"
+                    className="inline-flex items-center justify-center rounded-full bg-sky-600 px-8 py-3 text-sm md:text-base font-semibold text-white hover:bg-sky-700 transition-colors"
                   >
                     Reservasi Gold Ticket
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* KOTAK SILVER */}
-              <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl shadow-xl p-8 border-2 border-gray-300 flex flex-col h-full">
+              {/* SILVER – card putih minimal */}
+              <motion.div
+                className="flex flex-col h-full rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
                 <div className="text-center mb-6">
-                  <div className="inline-block bg-gradient-to-r from-gray-300 to-gray-500 text-white px-6 py-2 rounded-full font-bold text-lg mb-4">
-                    Kolam Private Silver
+                  <div className="inline-flex items-center rounded-full bg-slate-100 px-4 py-1 text-xs font-semibold text-slate-700 uppercase tracking-[0.18em] mb-4">
+                    Silver Package
                   </div>
-                  <div className="text-5xl font-bold text-gray-900 mb-2">
+                  <div className="text-4xl md:text-5xl font-bold text-slate-900 mb-1">
                     Rp 250.000
                   </div>
-                  <p className="text-gray-600 text-lg">per 3 orang</p>
+                  <p className="text-sm md:text-base text-slate-500">
+                    per 3 orang / 2 jam
+                  </p>
                 </div>
 
-                <div className="grid md:grid-cols-1 gap-6 mt-2">
+                <div className="space-y-5 mt-2">
                   <div className="flex items-start">
-                    <Clock className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                    <Clock className="h-5 w-5 text-sky-600 mr-3 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
+                      <h3 className="font-semibold text-slate-900 mb-1">
                         Durasi
                       </h3>
-                      <p className="text-gray-600">2 jam penggunaan</p>
+                      <p className="text-sm text-slate-600">
+                        2 jam penggunaan kolam private.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                    <CheckCircle className="h-5 w-5 text-sky-600 mr-3 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
+                      <h3 className="font-semibold text-slate-900 mb-1">
                         Fasilitas Termasuk
                       </h3>
-                      <ul className="text-gray-600 space-y-1 text-sm">
-                        <li>• Tiket Masuk</li>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        {/* kalau Silver juga termasuk tiket, tinggal aktifkan baris ini */}
+                        {/* <li>• Tiket Masuk</li> */}
                         <li>• Handuk</li>
                         <li>• Coffee Welcome Drink</li>
                         <li>• Toilet Pribadi</li>
@@ -247,59 +287,83 @@ export default function Facilities() {
                   </div>
                 </div>
 
-                <div className="mt-8 text-center md:mt-auto">
+                <div className="mt-8 md:mt-auto text-center">
                   <a
                     href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi%20Kolam%20Private%20Silver"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all inline-block"
+                    className="inline-flex items-center justify-center rounded-full bg-sky-600 px-8 py-3 text-sm md:text-base font-semibold text-white hover:bg-sky-700 transition-colors"
                   >
                     Reservasi Silver Ticket
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* FASILITAS SEKARANG & SEGERA HADIR */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
-                <CheckCircle className="h-8 w-8 text-green-600 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <motion.div
+            className="grid md:grid-cols-2 gap-8 mb-16"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <motion.div
+              className="rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-sm hover:shadow-md transition-all"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+            >
+              <div className="flex items-center mb-5">
+                <CheckCircle className="h-6 w-6 text-emerald-600 mr-3" />
+                <h2 className="text-xl md:text-2xl font-bold text-slate-900">
                   Tersedia Sekarang
                 </h2>
               </div>
               <ul className="space-y-3 text-sm md:text-base">
                 {currentFacilities.map((facility, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mr-3" />
+                  <li key={index} className="flex items-center text-slate-700">
+                    <span className="mr-3 inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
                     {facility}
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
-                <Sparkles className="h-8 w-8 text-purple-600 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <motion.div
+              className="rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-sm hover:shadow-md transition-all"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+            >
+              <div className="flex items-center mb-5">
+                <Sparkles className="h-6 w-6 text-purple-600 mr-3" />
+                <h2 className="text-xl md:text-2xl font-bold text-slate-900">
                   Segera Hadir
                 </h2>
               </div>
               <ul className="space-y-3 text-sm md:text-base">
                 {comingSoonFacilities.map((facility, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3" />
+                  <li key={index} className="flex items-center text-slate-700">
+                    <span className="mr-3 inline-flex h-2.5 w-2.5 rounded-full bg-purple-500" />
                     {facility}
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* CTA WHATSAPP */}
-          <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 text-white text-center shadow-xl">
+          <motion.div
+            className="rounded-2xl bg-gradient-to-r from-sky-600 to-cyan-600 p-8 text-white text-center shadow-md"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Butuh Informasi Lebih Lanjut?
             </h2>
@@ -311,11 +375,11 @@ export default function Facilities() {
               href="https://wa.me/6282130326679?text=Halo%20Admin%20Tirta%20Camelia%2C%20saya%20ingin%20reservasi"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors inline-block"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm md:text-base font-bold text-sky-700 hover:bg-sky-50 transition-colors"
             >
               Hubungi Kami via WhatsApp
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

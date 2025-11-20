@@ -102,6 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <p className="text-gray-400 text-sm">
                 Destinasi wisata air terbaik untuk keluarga Anda. Nikmati berbagai fasilitas modern dan pelayanan terbaik.
               </p>
+              <br />
               <a
       href="https://www.instagram.com/tirtacameliahotspring?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
       target="_blank"

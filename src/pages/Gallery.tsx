@@ -1,22 +1,158 @@
 import { Helmet } from 'react-helmet-async';
-import { Image as ImageIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// --- TIPE DATA ---
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+type GalleryCategory = {
+  title: string;
+  images: GalleryImage[];
+};
+
+//cafe Merch
+import cafeMerch1 from '../public/CafeMerch/cafeMerch1.jpg';
+import cafeMerch2 from '../public/CafeMerch/cafeMerch2.jpg';
+import cafeMerch3 from '../public/CafeMerch/cafeMerch3.jpg';
+
+//kolam Privat
+// import kolamPrivat1 from '../public/KolamPrivat/kolamP1.jpg';
+import kolamPrivat2 from '../public/KolamPrivat/kolamP2.jpg';
+import kolamPrivat3 from '../public/KolamPrivat/kolamP3.jpg';
+import kolamPrivat4 from '../public/KolamPrivat/kolamP4.jpg';
+
+//kolam Reguler
+import kolamReguler1 from '../public/KolamReguler/kolamR1.jpg';
+import kolamReguler2 from '../public/KolamReguler/kolamR2.jpg';
+import kolamReguler3 from '../public/KolamReguler/kolamR3.jpg';
+
+//fasilitas
+import fasilitas1 from '../public/Fasilitas/fasilitas1.jpg';
+import fasilitas2 from '../public/Fasilitas/fasilitas2.jpg';
+import fasilitas3 from '../public/Fasilitas/fasilitas3.jpg';
+import fasilitas4 from '../public/Fasilitas/fasilitas4.jpg';
+import fasilitas5 from '../public/Fasilitas/fasilitas5.jpg';
+import fasilitas6 from '../public/Fasilitas/fasilitas6.jpg';
+
+//spot foto
+import spot1 from '../public/SpotFoto/spot1.jpg';
+// import spot2 from '../public/SpotFoto/spot2.jpg';
+import spot3 from '../public/SpotFoto/spot3.jpg';
+import spot4 from '../public/SpotFoto/spot4.jpg';
+
+//tiketGerbang
+import tg1 from '../public/TIketGerbang/tg1.jpg';
+// import tg2 from '../public/TIketGerbang/tg2.jpg';
+import tg3 from '../public/TIketGerbang/tg3.jpg';
+import tg4 from '../public/TIketGerbang/tg4.jpg';
+
+// --- DATA GAMBAR ---
+// Pastikan file-file ini ada di folder: public/kolamReguler, public/gallery, dst
+
+const cafeImages: GalleryImage[] = [
+  { src: cafeMerch1, alt: 'Cafe Merch 1' },
+  { src: cafeMerch2, alt: 'Cafe Merch 2' },
+  { src: cafeMerch3, alt: 'Cafe Merch 3' },
+];
+
+const kolamPrivat: GalleryImage[] = [
+  { src: kolamPrivat2, alt: 'Kolam Privat 2' },
+  { src: kolamPrivat3, alt: 'Kolam Privat 3' },
+  { src: kolamPrivat4, alt: 'Kolam Privat 4' },
+];
+
+const kolamReguler: GalleryImage[] = [
+  { src: kolamReguler1, alt: 'Kolam Reguler 1' },
+  { src: kolamReguler2, alt: 'Kolam Reguler 2' },
+  { src: kolamReguler3, alt: 'Kolam Reguler 3' },
+];
+
+const fasilitasImages: GalleryImage[] = [
+  { src: fasilitas1, alt: 'Fasilitas 1' },
+  { src: fasilitas2, alt: 'Fasilitas 2' },
+  { src: fasilitas3, alt: 'Fasilitas 3' },
+  { src: fasilitas4, alt: 'Fasilitas 4' },
+  { src: fasilitas5, alt: 'Fasilitas 5' },
+  { src: fasilitas6, alt: 'Fasilitas 6' },
+];
+
+const spotFotoImages: GalleryImage[] = [
+  { src: spot1, alt: 'Spot Foto 1' },
+  { src: spot3, alt: 'Spot Foto 3' },
+  { src: spot4, alt: 'Spot Foto 4' },
+];
+
+const tiketGerbangImages: GalleryImage[] = [
+  { src: tg1, alt: 'Gerbang & Ticketing 1' },
+  { src: tg3, alt: 'Gerbang & Ticketing 3' },
+  { src: tg4, alt: 'Gerbang & Ticketing 4' },
+];
+
+const categories: GalleryCategory[] = [
+  {
+    title: 'Kolam Privat',
+    images: kolamPrivat,
+  },
+  {
+    title: 'Kolam Reguler',
+    images: kolamReguler,
+  },
+  {
+    title: 'Fasilitas',
+    images: fasilitasImages,
+  },
+  {
+   title: 'Spot Foto',
+   images: spotFotoImages, 
+  },
+  {
+    title: 'Cafe & Foodcourt',
+    images: cafeImages,
+  },
+  {
+    title: 'Gerbang & Ticketing',
+    images: tiketGerbangImages,
+  }
+  
+];
+
+// --- VARIANTS FRAMER MOTION ---
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const gridVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.35,
+    },
+  },
+};
 
 export default function Gallery() {
-  const categories = [
-    {
-      title: 'Kolam Renang',
-      images: Array(6).fill(null),
-    },
-    {
-      title: 'Cafe & Foodcourt',
-      images: Array(4).fill(null),
-    },
-    {
-      title: 'Fasilitas',
-      images: Array(4).fill(null),
-    },
-  ];
-
   return (
     <>
       <Helmet>
@@ -31,7 +167,7 @@ export default function Gallery() {
         />
       </Helmet>
 
-      {/* HERO GALERI – versi lebih clean */}
+      {/* HERO GALERI – tetap */}
       <section className="bg-white border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 py-12 md:py-16">
           <div className="text-center">
@@ -52,8 +188,15 @@ export default function Gallery() {
       {/* KONTEN GALERI */}
       <section className="py-16 md:py-20 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          {categories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16 last:mb-0">
+          {categories.map((category) => (
+            <motion.div
+              key={category.title}
+              className="mb-16 last:mb-0"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -68,43 +211,44 @@ export default function Gallery() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.images.map((_, imageIndex) => (
-                  <div
-                    key={imageIndex}
-                    className="group relative cursor-pointer overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-cyan-500 to-emerald-400 p-[1px] shadow-lg shadow-sky-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl aspect-[4/3]"
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                variants={gridVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                {category.images.map((image, imageIndex) => (
+                  <motion.div
+                    key={image.src ?? imageIndex}
+                    variants={cardVariants}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                    className="group relative cursor-pointer overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-cyan-500 to-emerald-400 p-[1px] shadow-lg shadow-sky-900/10 hover:shadow-2xl aspect-[4/3]"
                   >
-                    <div className="relative flex h-full w-full flex-col items-center justify-center rounded-[1.35rem] bg-slate-950/5 px-6 py-5 backdrop-blur-sm">
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-
-                      <div className="relative z-10 flex flex-col items-center text-center text-white">
-                        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur group-hover:scale-110 group-hover:bg-white/15 transition-all duration-300">
-                          <ImageIcon className="h-8 w-8 text-white/90" />
-                        </div>
-                        <p className="text-xs font-semibold tracking-[0.25em] uppercase text-sky-100/80 mb-1">
-                          Tirta Camelia
-                        </p>
-                        <p className="text-lg font-semibold">
-                          {category.title} {imageIndex + 1}
-                        </p>
-                        <p className="mt-1 text-xs text-slate-100/80">
-                          Klik untuk memperbesar
-                        </p>
-                      </div>
-
-                      <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-black/35 px-3 py-1 text-[11px] font-medium text-slate-50 backdrop-blur group-hover:bg-black/55 transition-colors">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        <span>Preview</span>
-                      </div>
+                    <div className="relative h-full w-full rounded-[1.35rem] overflow-hidden">
+                      {/* Background image */}
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
 
           {/* CTA WHATSAPP */}
-          <div className="mt-16 rounded-3xl bg-gradient-to-br from-sky-600 via-sky-500 to-cyan-500 p-[1px] shadow-xl shadow-sky-900/20">
+          <motion.div
+            className="mt-16 rounded-3xl bg-gradient-to-br from-sky-600 via-sky-500 to-cyan-500 p-[1px] shadow-xl shadow-sky-900/20"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="rounded-[1.4rem] bg-slate-950/5 px-6 py-8 md:px-10 md:py-10 text-white flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
               <div className="flex-1">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-100/80 mb-2">
@@ -129,7 +273,7 @@ export default function Gallery() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
