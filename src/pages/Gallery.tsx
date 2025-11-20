@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { Image as ImageIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // --- TIPE DATA ---
@@ -13,48 +12,110 @@ type GalleryCategory = {
   images: GalleryImage[];
 };
 
+//cafe Merch
+import cafeMerch1 from '../public/CafeMerch/cafeMerch1.jpg';
+import cafeMerch2 from '../public/CafeMerch/cafeMerch2.jpg';
+import cafeMerch3 from '../public/CafeMerch/cafeMerch3.jpg';
+
+//kolam Privat
+// import kolamPrivat1 from '../public/KolamPrivat/kolamP1.jpg';
+import kolamPrivat2 from '../public/KolamPrivat/kolamP2.jpg';
+import kolamPrivat3 from '../public/KolamPrivat/kolamP3.jpg';
+import kolamPrivat4 from '../public/KolamPrivat/kolamP4.jpg';
+
+//kolam Reguler
+import kolamReguler1 from '../public/KolamReguler/kolamR1.jpg';
+import kolamReguler2 from '../public/KolamReguler/kolamR2.jpg';
+import kolamReguler3 from '../public/KolamReguler/kolamR3.jpg';
+
+//fasilitas
+import fasilitas1 from '../public/Fasilitas/fasilitas1.jpg';
+import fasilitas2 from '../public/Fasilitas/fasilitas2.jpg';
+import fasilitas3 from '../public/Fasilitas/fasilitas3.jpg';
+import fasilitas4 from '../public/Fasilitas/fasilitas4.jpg';
+import fasilitas5 from '../public/Fasilitas/fasilitas5.jpg';
+import fasilitas6 from '../public/Fasilitas/fasilitas6.jpg';
+
+//spot foto
+import spot1 from '../public/SpotFoto/spot1.jpg';
+// import spot2 from '../public/SpotFoto/spot2.jpg';
+import spot3 from '../public/SpotFoto/spot3.jpg';
+import spot4 from '../public/SpotFoto/spot4.jpg';
+
+//tiketGerbang
+import tg1 from '../public/TIketGerbang/tg1.jpg';
+// import tg2 from '../public/TIketGerbang/tg2.jpg';
+import tg3 from '../public/TIketGerbang/tg3.jpg';
+import tg4 from '../public/TIketGerbang/tg4.jpg';
+
 // --- DATA GAMBAR ---
 // Pastikan file-file ini ada di folder: public/kolamReguler, public/gallery, dst
 
-const kolamRenangImages: GalleryImage[] = [
-  {
-    src: '../public/kolamReguler/kolamReguler1.jpg',
-    alt: 'Kolam reguler Tirta Camelia 1',
-  },
-  { src: '/gallery/kolam-2.jpg', alt: 'Kolam renang Tirta Camelia 2' },
-  { src: '/gallery/kolam-3.jpg', alt: 'Kolam renang Tirta Camelia 3' },
-  { src: '/gallery/kolam-4.jpg', alt: 'Kolam renang Tirta Camelia 4' },
-  { src: '/gallery/kolam-5.jpg', alt: 'Kolam renang Tirta Camelia 5' },
-  { src: '/gallery/kolam-6.jpg', alt: 'Kolam renang Tirta Camelia 6' },
+const cafeImages: GalleryImage[] = [
+  { src: cafeMerch1, alt: 'Cafe Merch 1' },
+  { src: cafeMerch2, alt: 'Cafe Merch 2' },
+  { src: cafeMerch3, alt: 'Cafe Merch 3' },
 ];
 
-const cafeImages: GalleryImage[] = [
-  { src: '/gallery/cafe-1.jpg', alt: 'Cafe & foodcourt Tirta Camelia 1' },
-  { src: '/gallery/cafe-2.jpg', alt: 'Cafe & foodcourt Tirta Camelia 2' },
-  { src: '/gallery/cafe-3.jpg', alt: 'Cafe & foodcourt Tirta Camelia 3' },
-  { src: '/gallery/cafe-4.jpg', alt: 'Cafe & foodcourt Tirta Camelia 4' },
+const kolamPrivat: GalleryImage[] = [
+  { src: kolamPrivat2, alt: 'Kolam Privat 2' },
+  { src: kolamPrivat3, alt: 'Kolam Privat 3' },
+  { src: kolamPrivat4, alt: 'Kolam Privat 4' },
+];
+
+const kolamReguler: GalleryImage[] = [
+  { src: kolamReguler1, alt: 'Kolam Reguler 1' },
+  { src: kolamReguler2, alt: 'Kolam Reguler 2' },
+  { src: kolamReguler3, alt: 'Kolam Reguler 3' },
 ];
 
 const fasilitasImages: GalleryImage[] = [
-  { src: '/gallery/fasilitas-1.jpg', alt: 'Fasilitas Tirta Camelia 1' },
-  { src: '/gallery/fasilitas-2.jpg', alt: 'Fasilitas Tirta Camelia 2' },
-  { src: '/gallery/fasilitas-3.jpg', alt: 'Fasilitas Tirta Camelia 3' },
-  { src: '/gallery/fasilitas-4.jpg', alt: 'Fasilitas Tirta Camelia 4' },
+  { src: fasilitas1, alt: 'Fasilitas 1' },
+  { src: fasilitas2, alt: 'Fasilitas 2' },
+  { src: fasilitas3, alt: 'Fasilitas 3' },
+  { src: fasilitas4, alt: 'Fasilitas 4' },
+  { src: fasilitas5, alt: 'Fasilitas 5' },
+  { src: fasilitas6, alt: 'Fasilitas 6' },
+];
+
+const spotFotoImages: GalleryImage[] = [
+  { src: spot1, alt: 'Spot Foto 1' },
+  { src: spot3, alt: 'Spot Foto 3' },
+  { src: spot4, alt: 'Spot Foto 4' },
+];
+
+const tiketGerbangImages: GalleryImage[] = [
+  { src: tg1, alt: 'Gerbang & Ticketing 1' },
+  { src: tg3, alt: 'Gerbang & Ticketing 3' },
+  { src: tg4, alt: 'Gerbang & Ticketing 4' },
 ];
 
 const categories: GalleryCategory[] = [
   {
-    title: 'Kolam Renang',
-    images: kolamRenangImages,
+    title: 'Kolam Privat',
+    images: kolamPrivat,
+  },
+  {
+    title: 'Kolam Reguler',
+    images: kolamReguler,
+  },
+  {
+    title: 'Fasilitas',
+    images: fasilitasImages,
+  },
+  {
+   title: 'Spot Foto',
+   images: spotFotoImages, 
   },
   {
     title: 'Cafe & Foodcourt',
     images: cafeImages,
   },
   {
-    title: 'Fasilitas',
-    images: fasilitasImages,
-  },
+    title: 'Gerbang & Ticketing',
+    images: tiketGerbangImages,
+  }
+  
 ];
 
 // --- VARIANTS FRAMER MOTION ---
@@ -173,31 +234,6 @@ export default function Gallery() {
                         loading="lazy"
                         className="absolute inset-0 h-full w-full object-cover"
                       />
-
-                      {/* Overlay */}
-                      <div className="relative flex h-full w-full flex-col items-center justify-center bg-slate-950/30 px-6 py-5 backdrop-blur-sm">
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-
-                        <div className="relative z-10 flex flex-col items-center text-center text-white">
-                          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-black/30 backdrop-blur group-hover:scale-110 group-hover:bg-black/40 transition-all duration-300">
-                            <ImageIcon className="h-8 w-8 text-white/90" />
-                          </div>
-                          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-sky-100/80 mb-1">
-                            Tirta Camelia
-                          </p>
-                          <p className="text-lg font-semibold">
-                            {category.title} {imageIndex + 1}
-                          </p>
-                          <p className="mt-1 text-xs text-slate-100/80">
-                            Klik untuk memperbesar
-                          </p>
-                        </div>
-
-                        <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-black/40 px-3 py-1 text-[11px] font-medium text-slate-50 backdrop-blur group-hover:bg-black/60 transition-colors">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                          <span>Preview</span>
-                        </div>
-                      </div>
                     </div>
                   </motion.div>
                 ))}
