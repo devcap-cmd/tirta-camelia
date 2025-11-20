@@ -29,6 +29,7 @@ export default function Home() {
   ];
 
   const comingSoon = [
+    'Resort',
     'Hotel',
     'Rain Pool',
     'Water Sport',
