@@ -3,6 +3,7 @@ import { Waves, Coffee, Music, Gift, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import pengalamanTakTerlupakan from '../public/pengalamanTakTerlupakan.jpg';
+import videoHero from '../public/videoHero.mov';
 
 export default function Home() {
   const highlights = [
@@ -29,6 +30,7 @@ export default function Home() {
   ];
 
   const comingSoon = [
+    'Resort',
     'Hotel',
     'Rain Pool',
     'Water Sport',
@@ -52,11 +54,24 @@ export default function Home() {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400">
+        <video
+          src={videoHero}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none"></div>
 
         <motion.div
-          className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto"
+          className="relative z-30 text-center text-white px-4 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
