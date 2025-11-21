@@ -66,7 +66,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
-        <div className="absolute inset-0 bg-black/20 z-10"></div>
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
 
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none"></div>
 
