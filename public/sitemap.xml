@@ -4,19 +4,14 @@
     <loc>https://www.tirtacamelia.my.id/</loc>
     <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://www.tirtacamelia.my.id/facilities</loc>
     <priority>0.8</priority>
   </url>
-
-  <!-- Halaman Galeri -->
   <url>
     <loc>https://www.tirtacamelia.my.id/gallery</loc>
     <priority>0.8</priority>
   </url>
-
-  <!-- Halaman Kontak -->
   <url>
     <loc>https://www.tirtacamelia.my.id/contact</loc>
     <priority>0.6</priority>
